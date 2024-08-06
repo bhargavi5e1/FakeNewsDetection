@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Fake News Detection</title>
+    <link href="static/img/icon.jpg" rel="icon">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left">
+                <!-- <div class="d-inline-flex align-items-center">
+                    <p class="mr-2 mb-2 mb-lg-0 text-white">Opening Hours:</p>
+                    <span class="mb-2 mb-lg-0 text-white">8.00AM - 9.00PM</span>
+                </div> -->
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <p class="m-0 mr-1 text-white">Follow Us:</p>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-capitalize font-italic"><span class="text-primary">Fake News</span> Classification</h1>
+                </a>
+            </div>
+            <!-- <div class="col-lg-8 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="d-inline-flex flex-column text-center pr-3 border-right">
+                        <h6>Our Office</h6>
+                        <p class="m-0">123 Street, NY, USA</p>
+                    </div>
+                    <div class="d-inline-flex flex-column text-center px-3 border-right">
+                        <h6>Email Us</h6>
+                        <p class="m-0">info@example.com</p>
+                    </div>
+                    <div class="d-inline-flex flex-column text-center pl-3">
+                        <h6>Call Us</h6>
+                        <p class="m-0">+012 345 6789</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar" style = "background-color: black;">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-0">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Safety</span>First</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav m-auto py-4">
+                    <a href="{{url_for('index')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{url_for('about')}}" class="nav-item nav-link">About</a>
+                    <a href="{{url_for('load')}}" class="nav-item nav-link">Upload</a>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">View Data</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="{{url_for('fakedata')}}" class="dropdown-item">Fake Data</a>
+                            <a href="{{url_for('realdata')}}" class="dropdown-item">Real Data</a>
+                        </div>
+                    </div>
+                    <a href="{{url_for('preprocess')}}" class="nav-item nav-link">Preprocess</a>
+                    <a href="{{url_for('model')}}"  class="nav-item nav-link">Modelling</a>
+                    <a href="{{url_for('prediction')}}"class="nav-item nav-link">Prediction</a>
+                    <a href="{{url_for('news')}}" class="nav-item nav-link">EDA Section</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="overlay"></div>
+		<div class="gtco-container" style>
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn"style="height: 500px;margin-top: 272px;">
+							<centerstyle="height: 400px;margin-top: 283px;"><h3 style="color:rgb(255, 38, 0);">{{msg}}</h3></center>
+                            <h4 class="text-primary m-0">The Fake News Classification</h4>
+                            <h4 class="text-primary m-0">With the Help Of Machine Learning </h4>
+							<p>
+
+                                <form action="{{url_for('prediction')}}" method="post">
+<!--								<a href="/upload" class="btn btn-primary btn-lg">Get Started</a>-->
+
+
+                            <input type="text" name="text" placeholder="Enter The News Text">
+                            <input type="submit" value="Submit">
+                                </form>
+<!--								<a href="#" class="btn btn-white btn-outline btn-lg"></a></p>-->
+							<!-- <img src="static/images/business_img.jpg" alt=”Image” height="1000" width="1200"> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+       
+     <!-- Footer Start -->
+   <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+    <div class="row pt-5">
+        <div class="col-lg-4 col-md-12 mb-5">
+            <h1 class="mb-3 display-5 text-capitalize font-italic text-white"><span class="text-primary">Fake News </span> Classification</h1>
+            <p align ="justify"class="m-0">Here in this project we have used Decision Tree, Random Forest and XGBoost classifier Machine Learning Algorithm to Classify the Real and Fake image
+
+                In the last decade, Fake News phenomenon has experienced a very significant spread, favored by social networks. This fake news can be broadcasted for different purposes. Some are made only to increase the number of clicks and visitors on a site. Others, to influence public opinion on political decisions or on financial markets. For example, by impacting the reputation of companies and institutions on the Web. Fake news concerning health on social media represents a risk to global health. </p>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <h5 class="text-primary mb-4">Quick Links</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Team</a>
+                        <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="text-primary mb-4">Popular Links</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Team</a>
+                        <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="text-primary mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+            <p class="m-0 text-white">
+                &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by
+                <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+            </p>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+            <ul class="nav d-inline-flex">
+                <li class="nav-item">
+                    <a class="nav-link text-white py-0" href="#">Privacy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white py-0" href="#">Terms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white py-0" href="#">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white py-0" href="#">Help</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-secondary border back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="static/lib/easing/easing.min.js"></script>
+<script src="static/lib/waypoints/waypoints.min.js"></script>
+<script src="static/lib/counterup/counterup.min.js"></script>
+<script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="static/mail/jqBootstrapValidation.min.js"></script>
+<script src="static/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="static/js/main.js"></script>
+</body>
+
+</html>
